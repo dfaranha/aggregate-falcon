@@ -47,10 +47,10 @@ elips_1024= [8 * (780-40)* n for n in num_sigs]
 
 fig, ax = plt.subplots()
 
-def plot_512_1024_AS_lin(): 
+def plot_512_1024_2S_lin(): 
     plt.title("Comparison With Trivial Aggregation")
-    ax.plot(num_sigs, kB(add_salts(num_sigs, f512_AS)),  label="Our Aggregation of Falcon-512")
-    ax.plot(num_sigs, kB(add_salts(num_sigs, f1024_AS)),  label="Our Aggregation of Falcon-1024", linestyle="dashed")
+    ax.plot(num_sigs, kB(add_salts(num_sigs, f512_2S)),  label="Our Aggregation of Falcon-512")
+    ax.plot(num_sigs, kB(add_salts(num_sigs, f1024_2S)),  label="Our Aggregation of Falcon-1024", linestyle="dashed")
     plt.plot(num_sigs, kB(add_salts(num_sigs, naive_512)),  label="Trivial Aggregation of Falcon-512")
     plt.plot(num_sigs, kB(add_salts(num_sigs, naive_1024)),  label="Trivial Aggregation of Falcon-1024", linestyle="dashed")
     plt.ylabel("Size (in kB)")       
@@ -64,12 +64,12 @@ def plot_512_1024_AS_lin():
     ax.xaxis.set_minor_locator(AutoMinorLocator())
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
-    plt.savefig("plot-512-1024-AS-lin.pdf")
+    plt.savefig("plot-512-1024-2S-lin.pdf")
 
-def plot_512_1024_AS_lin_zoom(): 
+def plot_512_1024_2S_lin_zoom(): 
     plt.title("Comparison With Trivial Aggregation")
-    ax.plot(num_sigs, kB(add_salts(num_sigs, f512_AS)),  label="Our Aggregation of Falcon-512")
-    ax.plot(num_sigs, kB(add_salts(num_sigs, f1024_AS)),  label="Our Aggregation of Falcon-1024", linestyle="dashed")
+    ax.plot(num_sigs, kB(add_salts(num_sigs, f512_2S)),  label="Our Aggregation of Falcon-512")
+    ax.plot(num_sigs, kB(add_salts(num_sigs, f1024_2S)),  label="Our Aggregation of Falcon-1024", linestyle="dashed")
     plt.plot(num_sigs, kB(add_salts(num_sigs, naive_512)),  label="Trivial Aggregation of Falcon-512")
     plt.plot(num_sigs, kB(add_salts(num_sigs, naive_1024)),  label="Trivial Aggregation of Falcon-1024", linestyle="dashed")
     plt.ylabel("Size (in kB)")       
@@ -83,12 +83,12 @@ def plot_512_1024_AS_lin_zoom():
     ax.xaxis.set_minor_locator(AutoMinorLocator())
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
-    plt.savefig("plot-512-1024-AS-lin_zoom.pdf")
+    plt.savefig("plot-512-1024-2S-lin_zoom.pdf")
 
-def plot_512_AS_lin_no_salt(): 
+def plot_512_2S_lin_no_salt(): 
     plt.title("Effect of Salt on Aggregate Signature")
-    ax.plot(num_sigs, kB(add_salts(num_sigs, f512_AS)),  label="Our Aggregation of Falcon-512")
-    ax.plot(num_sigs, kB(f512_AS),  label="Our Aggregation of Falcon-512 (No Salt)", linestyle="dashed")
+    ax.plot(num_sigs, kB(add_salts(num_sigs, f512_2S)),  label="Our Aggregation of Falcon-512")
+    ax.plot(num_sigs, kB(f512_2S),  label="Our Aggregation of Falcon-512 (No Salt)", linestyle="dashed")
     plt.plot(num_sigs, kB(add_salts(num_sigs, naive_512)),  label="Trivial Aggregation of Falcon-512")
     plt.plot(num_sigs, kB(naive_512),  label="Trivial Aggregation of Falcon-512 (No Salt)", linestyle="dashed")
     plt.ylabel("Size (in kB)")       
@@ -102,11 +102,11 @@ def plot_512_AS_lin_no_salt():
     ax.xaxis.set_minor_locator(AutoMinorLocator())
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
-    plt.savefig("plot-512-AS-lin-no-salt.pdf")
+    plt.savefig("plot-512-2S-lin-no-salt.pdf")
     
 def plot_512_AS_2S_lin(): 
     plt.title("Comparison With Other Challenge Sets (Falcon-512)")
-    plt.plot(num_sigs, kB(add_salts(num_sigs, f512_AS)),  label="Our Almost-Fully-Splitting for Falcon-512")
+    plt.plot(num_sigs, kB(add_salts(num_sigs, f512_AS)),  label="Almost-Fully-Splitting for Falcon-512")
     plt.plot(num_sigs, kB(add_salts(num_sigs, f512_2S)),  label="Two-Splitting for Falcon-512", linestyle="dashed")
     plt.ylabel("Size (in kB)")       
     plt.xlabel("Number of Signatures")
@@ -123,7 +123,7 @@ def plot_512_AS_2S_lin():
     
 def plot_1024_AS_2S_lin(): 
     plt.title("Comparison With Other Challenge Sets (Falcon-1024)")
-    ax.plot(num_sigs, kB(add_salts(num_sigs, f1024_AS)),  label="Our Almost-Fully-Splitting for Falcon-1024")
+    ax.plot(num_sigs, kB(add_salts(num_sigs, f1024_AS)),  label="Almost-Fully-Splitting for Falcon-1024")
     ax.plot(num_sigs, kB(add_salts(num_sigs, f1024_2S)),  label="Two-Splitting for Falcon-1024", linestyle="dashed")
     plt.ylabel("Size (in kB)")       
     plt.xlabel("Number of Signatures")
@@ -146,7 +146,7 @@ plot_512_1024_AS_lin()
 #plot_512_1024_AS_lin_zoom() 
 
 ### Figure 3 (right) in submission
-#plot_512_AS_lin_no_salt()
+#plot_512_2S_lin_no_salt()
 
 ### Figure 4 (left) in submission
 #plot_512_AS_2S_lin()

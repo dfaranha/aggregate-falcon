@@ -521,22 +521,22 @@ def compute_sizes_best(file_name, sizes):
 # COMPARISON WITH [JRS23]
 
 print("\n RESULTS FOR COMPARISON WITH [JRS23] (Table 4 in the submission)")
-print("\n For Falcon-512 (degree 128, secpar 128) and N=500")
-search(500, 15, FALCON_128_128(), CHAL_ALMOST_FULL_SPLIT_128_128(),4, True)
-print("\n For Falcon-512 (degree 128, secpar 128) and N=1000")
-search(1000, 15, FALCON_128_128(), CHAL_ALMOST_FULL_SPLIT_128_128(),4, True)
-print("\n For Falcon-512 (degree 128, secpar 128) and N=2000")
-search(2000, 15, FALCON_128_128(), CHAL_ALMOST_FULL_SPLIT_128_128(),4, True)
+print("\n For Falcon-512 (degree 64, secpar 121) and N=500")
+search(500, 15, FALCON_64_128(), CHAL_2_SPLIT_64_128(),8, True)
+print("\n For Falcon-512 (degree 64, secpar 121) and N=1000")
+search(1000, 15, FALCON_64_128(), CHAL_2_SPLIT_64_128(),8, True)
+print("\n For Falcon-512 (degree 64, secpar 121) and N=2000")
+search(2000, 15, FALCON_64_128(), CHAL_2_SPLIT_64_128(),8, True)
 
 # COMPARISON WITH SQUIRREL AND CHIPMUNK
 
 print("\n RESULTS FOR COMPARISON WITH SQUIRREL & CHIPMUNK (Table 5 in the submission)")
-print("\n For Falcon-512 (degree 128, secpar 128) and N=1024")
-search(1024, 15, FALCON_128_128(), CHAL_ALMOST_FULL_SPLIT_128_128(),4, True)
-print("\n For Falcon-512 (degree 128, secpar 128) and N=4096")
-search(4096, 15, FALCON_128_128(), CHAL_ALMOST_FULL_SPLIT_128_128(),4, True)
-print("\n For Falcon-512 (degree 128, secpar 128) and N=8192")
-search(8192, 15, FALCON_128_128(), CHAL_ALMOST_FULL_SPLIT_128_128(),4, True)
+print("\n For Falcon-512 (degree 64, secpar 121) and N=1024")
+search(1024, 15, FALCON_64_128(), CHAL_2_SPLIT_64_128(),8, True)
+print("\n For Falcon-512 (degree 64, secpar 121) and N=4096")
+search(4096, 15, FALCON_64_128(), CHAL_2_SPLIT_64_128(),8, True)
+print("\n For Falcon-512 (degree 64, secpar 121) and N=8192")
+search(8192, 15, FALCON_64_128(), CHAL_2_SPLIT_64_128(),8, True)
 
 # Computes all relevant aggregate signature sizes to run plot.py to obtain the different figures in Section 6.2
 compute_sizes_best("estimates-lin-.csv",  range(100, 10101, 100)) # start, end, step size
